@@ -1,1 +1,127 @@
-body { margin:0; padding:0;}
+/* VARIABLES
+========================*/
+:root {
+  /*navy*/
+  --main-bg-color: rgba(3,36,92,1);
+  /*grey*/
+  --secondary-bg-color: rgba(250,250,250,1);
+  /*gold*/
+  --tertiary-bg-color: rgba(250,197,0,1);
+  /*lightblue*/
+  --quaternary-bg-color: rgba(184,213,229,1);
+  /*mediumblue*/
+  --quinary-bg-color: rgba(73,157,197,1);
+}
+
+
+/* ESTILO GENERAL
+========================*/
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: var(--secondary-bg-color);
+  margin:0;
+  padding:0;
+}
+
+.container {
+  margin: 0 auto;
+  width:100%;
+}
+
+header {
+  background: var(--main-bg-color);
+  color: white;
+  display:flex;
+  padding: 0.5rem;
+}
+
+/* SECCIÓN NAVEGACIÓN
+========================*/
+
+.fasc-title {
+  margin:0 1rem;
+}
+
+/* SECCIÓN PORTADA
+========================*/
+
+.fasc-cover-page {
+  display: flex;
+}
+
+  .fasc-cover-page .fasc-logo-school {
+    width: 30%;
+  }
+    .fasc-cover-page .fasc-logo-school img {
+      position: relative;
+      bottom:-2.5px;
+      width: 100%;
+    }
+
+  .fasc-cover-page .fasc-abstract {
+    background: url("../assets/portada-blue.jpg");
+    background-size: 100%;
+    background-position: center;
+    border-right: 5px solid var(--quaternary-bg-color);
+    position: relative;
+    width: 70%;
+  }
+    .fasc-cover-page .fasc-abstract .fasc-abstract-info {
+      bottom:0;
+      margin-right: 1em;
+      position: absolute;
+      right: 0;
+    }
+      .fasc-cover-page .fasc-abstract .fasc-abstract-info .fasc-abstract-info-box-element {
+        display: block;
+        text-align: right;
+        margin-bottom: 2em;
+      }
+        .fasc-cover-page .fasc-abstract .fasc-abstract-info .fasc-abstract-info-box-element span {
+          background: rgba(3,36,92,0.7);
+          color: white;
+          padding: 0.5rem;
+        }
+        .fasc-cover-page .fasc-abstract .fasc-abstract-info .fasc-abstract-info-box-element .academic-level {
+          color: var(--quaternary-bg-color);
+          font-size: 2em;
+        }
+        .fasc-cover-page .fasc-abstract .fasc-abstract-info .fasc-abstract-info-box-element .evaluation-time {
+          color: var(--quaternary-bg-color);
+          font-size: 2.5em;
+          font-weight: bold;
+        }
+        .fasc-cover-page .fasc-abstract .fasc-abstract-info .fasc-abstract-info-box-element .author {
+          font-size: 1.5em;
+        }
+
+
+/* SECCIÓN TEMÁTICA
+========================*/
+
+
+/* SECCIÓN ACTIVIDADES
+========================*/
+
+
+/* SECCIÓN AUTOEVALUACIÓN
+========================*/
+
+
+/* media queries
+========================*/
+@media screen and (max-width: 800px){
+  body {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 640px){
+  body {
+    font-size: 9px;
+  }
+}
