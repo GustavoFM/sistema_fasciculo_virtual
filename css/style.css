@@ -11,6 +11,9 @@
   --quaternary-bg-color: rgba(184,213,229,1);
   /*mediumblue*/
   --quinary-bg-color: rgba(73,157,197,1);
+
+  /*white*/
+  --white-bg-color: rgba(255,255,255,1);
 }
 
 
@@ -37,6 +40,28 @@ header {
   color: white;
   display:flex;
   padding: 0.5rem;
+}
+
+span.highlight {
+  color: var(--quinary-bg-color);
+  font-weight: bold;
+}
+
+div.example-subject {
+  background: var(--secondary-bg-color);
+  font-size: 0.8em;
+  margin-left: 1em;
+  padding: 0.3em 1em;
+}
+
+figcaption {
+  font-weight: bold;
+  font-size: 0.7em;
+  text-align: right;
+}
+
+figure img {
+  width: 400px;
 }
 
 /* SECCIÓN NAVEGACIÓN
@@ -102,7 +127,38 @@ header {
 
 /* SECCIÓN TEMÁTICA
 ========================*/
-
+.fasc-subject {
+  background: var(--quaternary-bg-color);
+  padding: 1em;
+}
+  .fasc-subject .fasc-subject-info .fasc-lesson {
+    background: var(--quinary-bg-color);
+    border-radius: 0.2em 0.2em 0 0;
+    color: white;
+    font-size: 1.7em;
+    margin-bottom: 0;
+    padding: 0.5em;
+  }
+  .fasc-subject .fasc-subject-info .fasc-subject-name {
+    background: var(--white-bg-color);
+    border-bottom: 2px solid var(--quinary-bg-color);
+    color: var(--main-bg-color);
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding:0.5em;
+  }
+  .fasc-subject .fasc-subject-info .fasc-box-subject-info {
+    background: var(--white-bg-color);
+  }
+    .fasc-subject .fasc-subject-info .fasc-box-subject-info .fasc-subject-description {
+      font-size: 0.9em;
+      color: var(--main-bg-color);
+      padding:0.5em 1em;
+    }
+    .fasc-subject .fasc-subject-info .fasc-box-subject-info .fasc-subject-media figure {
+      float:right;
+    }
 
 /* SECCIÓN ACTIVIDADES
 ========================*/
@@ -114,14 +170,66 @@ header {
 
 /* media queries
 ========================*/
+@media screen and (max-width: 1024px){
+  body {
+    font-size: 14px;
+  }
+  /* portada */
+  .fasc-cover-page {
+    display:block;
+  }
+  .fasc-cover-page .fasc-logo-school {
+    display: none;
+  }
+  .fasc-cover-page .fasc-abstract {
+    height: 200px;
+    width: 100%;
+  }
+  /* temática */
+  .fasc-subject {
+    padding: 0.5em 0;
+  }
+  .fasc-subject .fasc-subject-info .fasc-lesson {
+    border-radius:0;
+  }
+  .fasc-subject .fasc-subject-info .fasc-box-subject-info .fasc-subject-media figure img {
+    float: none;
+    width: 400px;
+  }
+}
+
 @media screen and (max-width: 800px){
   body {
     font-size: 12px;
   }
-}
+  /* portada */
+  .fasc-cover-page {
+    display:block;
+  }
+  .fasc-cover-page .fasc-logo-school {
+    display: none;
+  }
+  .fasc-cover-page .fasc-abstract {
+    height: 200px;
+    width: 100%;
+  }
 
-@media screen and (max-width: 640px){
-  body {
-    font-size: 9px;
+  /* temática */
+  .fasc-subject {
+    padding: 0.5em 0;
+  }
+  .fasc-subject .fasc-subject-info .fasc-lesson {
+    border-radius:0;
+  }
+  .fasc-subject .fasc-subject-info .fasc-box-subject-info .fasc-subject-media figure {
+    height: 200px;
+    overflow: hidden;
+    margin:1em 0;
+    padding: 0;
+    width: 100%;
+  }
+  .fasc-subject .fasc-subject-info .fasc-box-subject-info .fasc-subject-media figure img {
+    float: none;
+    width: 100%;
   }
 }
