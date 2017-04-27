@@ -16,6 +16,9 @@
      ================================================== -->
     <script src="https://use.fontawesome.com/e2c5df4de8.js"></script>
 
+    <!-- DESPLIEGUE SUBJECT
+    ================================================== -->
+    <script src="js/show-hide-content-subject.js"></script>
   </head>
   <body>
 
@@ -50,65 +53,72 @@
       <section id="fasc-subject-1" class="fasc-subject">
         <!-- SOPORTE TEÓRICO TEMÁTICA
          ================================================== -->
-        <article class="fasc-subject-info">
-          <h2 class="fasc-lesson">ESPAÑOL 2</h2>
-          <h3 class="fasc-subject-name"><i class="fa fa-book fa-fw" aria-hidden="true"></i> La entrevista</h3>
-          <div class="fasc-box-subject-info" >
-            <div class="fasc-subject-media">
-              <figure>
-                <img src="assets/fasc-subject-media1.jpeg" alt="">
-                <figcaption>La entrevistada</figcaption>
-              </figure>
-            </div>
-            <div class="fasc-subject-description">
-              <!-- n * <p> -->
-              <p>Una entrevista es un diálogo en que la persona (entrevistador), generalmente un periodista, hace una serie de preguntas a otra persona (entrevistado) con el fin de conocer mejor sus ideas, sus sentimientos y su forma de actuar</p>
-              <p>El <span class="highlight">entrevistado</span> deberá ser siempre una persona que interese a la comunidad. El entrevistado es la persona que tiene alguna idea o alguna experiencia importante que transmitir</p>
-              <p>El <span class="highlight">entrevistador</span> es el que dirige la entrevista, debe dominar el dialogo, presenta al entrevistado y el tema principal, hace preguntas adecuadas y cierra la entrevista</p>
-              <p>Las acaracterísticas de la entrevista, según los propósitos informativos del entrevistador, son: </p>
-              <ul>
-                <li><span class="highlight">Entrevista biográfica o semblanza. </span>Las preguntas van dirigidas para conocer la vida y personalidad del entrevistador. Este tipo de entrevistas suelen realizarse a personajes del mundo del espectáculo.</li>
-                <li><span class="highlight">Entrevista informativa. </span>Las preguntas se centran en el tema que conoce el entrevistado o del cual éste es experto. Es el tipo de entrevista que se realiza comúnmente a los políticos, artistas, científicos, etc.</li>
-              </ul>
-              <p>Una entrevista se realiza por etapas:</p>
-              <ul>
-                <li><span class="highlight">Planeación. </span>Se precisa el objetivo de la entrevista, se consulta material, se elige al entrevistado, se fija fecha y lugar, y se elabora un cuestionario con preguntas claras.</li>
-                <li><span class="highlight">Realización. </span>Se lleva a cabo la entrevista, el entrevistador explica el motivo de ésta; se mostrará cordial y respetuoso, escuchará con atención las respuestas a sus preguntas.</li>
-                <li><span class="highlight">Escritura de informe. </span>Se redacta el informe que constará de tres partes: introducción, cuerpo y conclusión.</li>
-              </ul>
-              <p>Los signos de puntuación utilizados en una entrevista son:</p>
-              <ul>
-                <li><span class="highlight">Puntos: </span>Al finalizar cada idea o enunciado.</li>
-                <li><span class="highlight">Comas: </span>Cuando requiere una pausa el comentario del entrevistado.</li>
-                <li><span class="highlight">Punto y coma: </span>Cuando se indica una pausa mayor que la coma, pero menor que el punto; se utiliza generalmente para indicar un cambio de idea.</li>
-                <li><span class="highlight">Paréntesis: </span>Cuando hay aclaraciones y anotaciones.</li>
-                <li><span class="highlight">Signos de interrogación: </span>Para todas las preguntas.</li>
-                <li><span class="highlight">Signos de admiración: </span>Cuando existen exclamaciones que hay que destacar o interjecciones que mencione el entrevistado.</li>
-                <li><span class="highlight">Guiones: </span>Para marcar la participación de quien hable.</li>
-                <li><span class="highlight">Comillas: </span>Para marcar las citas que se mencionan.</li>
-              </ul>
-              <p>En las entrevistas escritas se utilizan dos tipos de discursos, directo e indirecto.</p>
-              <p>El <span class="highlight">discurso directo</span> es cuando se repite lo más exactamente posible las palabras del entrevistado. Ejemplo: </p>
-              <div class="example-subject">
-                <p>Cuando comencé a escribir, mi gran maestro fue Juan José Arreola; por eso le dediqué mi libro <em>Todo lo hacemos en familia. (Entrevista a Beatriz Espejo).</em></p>
-              </div>
-              <p>La transcripción en estilo indirecto es cuando el entrevistador se apropia de las palabras del entrevistado y las repite. Ejemplo: </p>
-              <div class="example-subject">
-                <p><em>Beatriz Espejo dijo que le dedicó su libro "Todo lo hacemos en familia" a Juan José Arreola, ya que fue su maestro.</em></p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- SECCIÓN ACTIVIDADES
+        <h2 class="fasc-lesson">ESPAÑOL 2</h2>
+        <!-- SUBJECT 1
          ================================================== -->
-        <article id="fasc-quiz-1" class="fasc-quizzes">
-          <span class="quiz-instruction"></span>
-          <div class="quiz-media-support"></div>
-          <div class="quiz">
-            <!-- QUIZ TYPE -->
-          </div>
-        </article>
+        <h3 id="fasc-subject-name-1" class="fasc-subject-name"><i class="fa fa-book fa-fw" aria-hidden="true"></i> La entrevista <i class="arrow-collapse fa fa-caret-square-o-down" aria-hidden="true" onclick="showContent(1)"></i></h3>
+        <div id="fasc-box-subject-and-quizzes-1" class="fasc-box-subject-and-quizzes" hidden>
+          <article class="fasc-subject-info">
+            <div id="fasc-box-subject-info1" class="fasc-box-subject-info" >
+              <div class="fasc-subject-media">
+                <figure>
+                  <img src="assets/fasc-subject-media1.jpeg" alt="">
+                  <figcaption>La entrevistada</figcaption>
+                </figure>
+              </div>
+              <div class="fasc-subject-description">
+                <!-- n * <p> -->
+                <p>Una entrevista es un diálogo en que la persona (entrevistador), generalmente un periodista, hace una serie de preguntas a otra persona (entrevistado) con el fin de conocer mejor sus ideas, sus sentimientos y su forma de actuar</p>
+                <p>El <span class="highlight">entrevistado</span> deberá ser siempre una persona que interese a la comunidad. El entrevistado es la persona que tiene alguna idea o alguna experiencia importante que transmitir</p>
+                <p>El <span class="highlight">entrevistador</span> es el que dirige la entrevista, debe dominar el dialogo, presenta al entrevistado y el tema principal, hace preguntas adecuadas y cierra la entrevista</p>
+                <p>Las acaracterísticas de la entrevista, según los propósitos informativos del entrevistador, son: </p>
+                <ul>
+                  <li><span class="highlight">Entrevista biográfica o semblanza. </span>Las preguntas van dirigidas para conocer la vida y personalidad del entrevistador. Este tipo de entrevistas suelen realizarse a personajes del mundo del espectáculo.</li>
+                  <li><span class="highlight">Entrevista informativa. </span>Las preguntas se centran en el tema que conoce el entrevistado o del cual éste es experto. Es el tipo de entrevista que se realiza comúnmente a los políticos, artistas, científicos, etc.</li>
+                </ul>
+                <p>Una entrevista se realiza por etapas:</p>
+                <ul>
+                  <li><span class="highlight">Planeación. </span>Se precisa el objetivo de la entrevista, se consulta material, se elige al entrevistado, se fija fecha y lugar, y se elabora un cuestionario con preguntas claras.</li>
+                  <li><span class="highlight">Realización. </span>Se lleva a cabo la entrevista, el entrevistador explica el motivo de ésta; se mostrará cordial y respetuoso, escuchará con atención las respuestas a sus preguntas.</li>
+                  <li><span class="highlight">Escritura de informe. </span>Se redacta el informe que constará de tres partes: introducción, cuerpo y conclusión.</li>
+                </ul>
+                <p>Los signos de puntuación utilizados en una entrevista son:</p>
+                <ul>
+                  <li><span class="highlight">Puntos: </span>Al finalizar cada idea o enunciado.</li>
+                  <li><span class="highlight">Comas: </span>Cuando requiere una pausa el comentario del entrevistado.</li>
+                  <li><span class="highlight">Punto y coma: </span>Cuando se indica una pausa mayor que la coma, pero menor que el punto; se utiliza generalmente para indicar un cambio de idea.</li>
+                  <li><span class="highlight">Paréntesis: </span>Cuando hay aclaraciones y anotaciones.</li>
+                  <li><span class="highlight">Signos de interrogación: </span>Para todas las preguntas.</li>
+                  <li><span class="highlight">Signos de admiración: </span>Cuando existen exclamaciones que hay que destacar o interjecciones que mencione el entrevistado.</li>
+                  <li><span class="highlight">Guiones: </span>Para marcar la participación de quien hable.</li>
+                  <li><span class="highlight">Comillas: </span>Para marcar las citas que se mencionan.</li>
+                </ul>
+                <p>En las entrevistas escritas se utilizan dos tipos de discursos, directo e indirecto.</p>
+                <p>El <span class="highlight">discurso directo</span> es cuando se repite lo más exactamente posible las palabras del entrevistado. Ejemplo: </p>
+                <div class="example-subject">
+                  <p>Cuando comencé a escribir, mi gran maestro fue Juan José Arreola; por eso le dediqué mi libro <em>Todo lo hacemos en familia. (Entrevista a Beatriz Espejo).</em></p>
+                </div>
+                <p>La transcripción en estilo indirecto es cuando el entrevistador se apropia de las palabras del entrevistado y las repite. Ejemplo: </p>
+                <div class="example-subject">
+                  <p><em>Beatriz Espejo dijo que le dedicó su libro "Todo lo hacemos en familia" a Juan José Arreola, ya que fue su maestro.</em></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SECCIÓN ACTIVIDADES
+           ================================================== -->
+          <article id="fasc-quiz-1" class="fasc-quizzes">
+            <h4 class="fasc-activity-name"><i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i> Actividad I</h4>
+            <span class="quiz-instruction">A continuación, se presentan los elementos que conforman una entrevista, ordénalos de acuerdo a cómo ésta debe ir llevándose a cabo</span>
+            <div class="quiz-media-support"></div>
+            <div class="quiz">
+              <!-- QUIZ TYPE -->
+              <iframe src="quizzes/order-text-quiz.html" frameborder="0" width="100%" height="350px"></iframe>
+            </div>
+          </article>
+        </div>
+
       </section>
 
       <!-- SECCIÓN AUTOEVALUACIÓN
