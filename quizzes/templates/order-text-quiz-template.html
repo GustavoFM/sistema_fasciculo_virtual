@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style>
+
+  :root {
+    --elements-bg-color: rgba(0,136,204,1);
+  }
+
+  * {  font-family: 'Roboto', sans-serif; }
+
+  .quiz {
+    margin: 0 auto;
+    width: 800px;
+  }
+  .quiz-button {
+    margin-top: 1em;
+    text-align: center;
+  }
+    .quiz-board {
+      display: flex;
+      justify-content: space-around;
+
+    }
+      .options-column {
+        background: #EEE;
+        width: 40%;
+      }
+        .element-drag-options-column {
+          background: var(--elements-bg-color);
+          color:white;
+          font-size: 0.9em;
+          padding: 0.5em;
+        }
+      .drop-repository {
+        background: #EEE;
+        width: 45%;
+      }
+        .order-number {
+          background: yellow;
+          margin-left: 0.1em;
+          padding: 0 0.3em;
+        }
+
+        .title-options-column, .title-drop-repository {
+          margin-bottom: 0.5em;
+          padding: 1em;
+          font-size: 0.9em;
+          font-weight: bold;
+          text-align: center;
+        }
+        .element-options-column, .element-drop-repository {
+          background: #CCC;
+          height: 1.2rem;
+          padding: 0.5em 0;
+        }
+  </style>
+  <script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    // EVENTO DE ARRASTRAR
+    function drag(ev) {
+        ev.dataTransfer.setData("id-option", ev.target.id);
+        let audio = new Audio('../assets/audio/click_on.mp3');
+        audio.play();
+    }
+
+    // EVENTO DE SOLTAR
+    function drop(ev) {
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("id-option");
+        console.log(ev.target.appendChild(document.getElementById(data)));
+        console.log(data);
+        let audio = new Audio('../assets/audio/drop_on.mp3');
+        audio.play();
+    }
+
+    // GET RESPUESTAS REALIZADAS EN EL QUIZ
+    function getAnswersOrderTextQuiz() {
+      let resps = new Array(1);
+      for(let i=0;i<resps.length;i++) {
+        let obj_img = "#box_resp"+(i+1);
+        let obj_selection = obj_img+" span";
+        console.log(obj_selection);
+        resps[i] = document.querySelector(obj_selection).id.replace(/\D/g,'');
+        //console.log(resps[i]);
+      }
+      console.log("Respuestas: " + resps);
+      //console.log(document.querySelector('#box_resp1 span').id);
+    }
+
+    function test() {
+      alert("!Despositado¡");
+    }
+
+    function test2(ev) {
+      ev.target.style.borderColor="green";
+    }
+  </script>
+
+</head>
+<body>
+
+  <!-- QUIZ
+   ================================================== -->
+  <div class="quiz">
+
+    <!-- QUIZ BOARD
+     ================================================== -->
+    <div class="quiz-board">
+
+      <!-- ZONA DE OPCIONES DE RESPUESTA
+       ================================================== -->
+      <div class="options-column">
+        <div class="title-options-column">Elementos</div>
+        <div id="box_opc1" class="element-options-column" ondrop="drop(event)" ondragover="allowDrop(event)">
+         <span id="drag1" class="element-drag-options-column" draggable="true" ondragstart="drag(event)">Objetivo de la entrevista</span>
+        </div>
+        <!--<div class="column" id="box_opc2" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">
+         <img src="cat.png" draggable="true" ondragstart="drag(event)" id="drag2" alt="2" width="150" height="150">
+        </div>
+        <div class="column" id="box_opc3" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">
+         <img src="cat.png" draggable="true" ondragstart="drag(event)" id="drag3" alt="3" width="150" height="150">
+       </div>-->
+      </div>
+
+      <!-- ZONA DE RESPUESTAS
+       ================================================== -->
+      <div class="drop-repository">
+        <div class="title-drop-repository">Orden</div>
+        <div id="box_resp1" class="element-drop-repository" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend="test()" ondragenter="test2(event)">
+          <b class="order-number">1</b>
+        </div>
+        <!--<div id="box_resp2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="box_resp3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>-->
+      </div>
+
+    </div>
+
+    <div class="quiz-button">
+      <button id="finish_btn" type="button" name="button" onclick="getAnswersOrderTextQuiz()">Finalizar</button>
+    </div>
+
+  </div>
+</body>
+</html>

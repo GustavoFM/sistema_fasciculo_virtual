@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style>
+
+  :root {
+    --elements-bg-color: rgba(0,136,204,1);
+  }
+
+  * {  font-family: 'Roboto', sans-serif; }
+
+  .quiz-true-false-quiz {
+    margin: 0 auto;
+    width: 800px;
+  }
+  .quiz-button {
+    margin-top: 1em;
+    text-align: center;
+  }
+    .quiz-board {
+    }
+      .quiz-button button {
+        color: #900;
+        font-weight: bold;
+      }
+      .questions {
+        background: #EEE;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        margin: 0 auto;
+        width: 80%;
+      }
+        .true-false-question {
+          display: flex;
+        }
+          .statement-question {
+            font-size: 1.2em;
+          }
+          .box-option-select-true-false, .box-statement-question {
+            padding: 0.3em;
+          }
+          .box-option-select-true-false select {
+            font-size: 1.1em;
+          }
+  </style>
+  <script>
+
+    let numberAnswers=6;
+
+    // DELETE ELEMENTO "NULL" DEL SELECT (OPTION '-')
+    function deleteNullValue(element) {
+      let d = document.querySelector('#'+element.id);
+      if(d.childElementCount==3) {
+        let d_nested = document.querySelector('#'+element.id+' .null-option');
+        let throwawayNode = d.removeChild(d_nested);
+        console.log("Eliminado: " + throwawayNode);
+        console.log(throwawayNode);
+      }
+      changeBackground(element.id);
+      let audio = new Audio('assets/audio/switch.mp3');
+      audio.play();
+    }
+
+    // CHANGE ESTILO BACKGROUN-COLOR SEGÚN RESPUESTA
+    function changeBackground(elementId) {
+      let d = document.querySelector('#'+elementId);
+      let elementSelected = d.options[d.options.selectedIndex].value;
+      if(elementSelected=="V") {
+        d.style.backgroundColor = "green";
+        d.style.color = "white";
+      } else {
+        d.style.backgroundColor = "red";
+        d.style.color = "white";
+      }
+    }
+
+    // GET RESPUESTAS REALIZADAS EN EL QUIZ
+    function getAnswersTrueFalseQuiz() {
+      let resps = new Array(numberAnswers);
+      for(let i=0;i<resps.length;i++) {
+        let elementHTML = "#true-false-question-"+(i+1);
+        let objSelection = elementHTML+" select";
+        console.log(objSelection);
+        let indexSelected = document.querySelector(objSelection).options.selectedIndex;
+        resps[i] = document.querySelector(objSelection).options[indexSelected].value;
+        //console.log(resps[i]);
+      }
+      console.log("Respuestas: " + resps);
+    }
+
+  </script>
+
+</head>
+<body>
+
+  <!-- QUIZ
+   ================================================== -->
+  <div class="quiz-true-false-quiz">
+
+    <!-- QUIZ BOARD
+     ================================================== -->
+    <div class="quiz-board">
+
+      <!-- ZONA DE PREGUNTAS
+       ================================================== -->
+      <div class="questions">
+        <!-- PREGUNTA -->
+        <div id="true-false-question-1" class="true-false-question">
+          <div class="box-option-select-true-false">
+            <select id="option-select-true-false-1" class="option-select-true-false" onchange="deleteNullValue(this)">
+              <option class="null-option" value="null">-</option>
+              <option value="V">V</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <div class="box-statement-question">
+            <span class="statement-question">La entrevista tiene como finalidad aportar información.</span>
+          </div>
+        </div>
+        <!-- PREGUNTA -->
+        <div id="true-false-question-2" class="true-false-question">
+          <div class="box-option-select-true-false">
+            <select id="option-select-true-false-2" class="option-select-true-false" onchange="deleteNullValue(this)">
+              <option class="null-option" value="null">-</option>
+              <option value="V">V</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <div class="box-statement-question">
+            <span class="statement-question">Todas las entrevistas son espontáneas.</span>
+          </div>
+        </div>
+        <!-- PREGUNTA -->
+        <div id="true-false-question-3" class="true-false-question">
+          <div class="box-option-select-true-false">
+            <select id="option-select-true-false-3" class="option-select-true-false" onchange="deleteNullValue(this)">
+              <option class="null-option" value="null">-</option>
+              <option value="V">V</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <div class="box-statement-question">
+            <span class="statement-question">El entrevistado es la persona que contesta las preguntas.</span>
+          </div>
+        </div>
+        <!-- PREGUNTA -->
+        <div id="true-false-question-4" class="true-false-question">
+          <div class="box-option-select-true-false">
+            <select id="option-select-true-false-4" class="option-select-true-false" onchange="deleteNullValue(this)">
+              <option class="null-option" value="null">-</option>
+              <option value="V">V</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <div class="box-statement-question">
+            <span class="statement-question">El entrevistado debe realizar un guión</span>
+          </div>
+        </div>
+        <!-- PREGUNTA -->
+        <div id="true-false-question-5" class="true-false-question">
+          <div class="box-option-select-true-false">
+            <select id="option-select-true-false-5" class="option-select-true-false" onchange="deleteNullValue(this)">
+              <option class="null-option" value="null">-</option>
+              <option value="V">V</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <div class="box-statement-question">
+            <span class="statement-question">El entrevistador debe ser una persona seria y no debe dejar que el entrevistado hable demasiado.</span>
+          </div>
+        </div>
+        <!-- PREGUNTA -->
+        <div id="true-false-question-6" class="true-false-question">
+          <div class="box-option-select-true-false">
+            <select id="option-select-true-false-6" class="option-select-true-false" onchange="deleteNullValue(this)">
+              <option class="null-option" value="null">-</option>
+              <option value="V">V</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <div class="box-statement-question">
+            <span class="statement-question">La entrevista es un discurso sobre política.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ZONA DE BOTONES
+     ================================================== -->
+    <div class="quiz-button">
+      <button id="finish-btn" type="button" name="button" onclick="getAnswersTrueFalseQuiz()" >Continuar</button>
+    </div>
+
+  </div>
+</body>
+</html>
