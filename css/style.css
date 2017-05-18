@@ -185,6 +185,12 @@ figure img {
     padding: 0.5em;
   }
 
+  .fasc-quizzes .media-and-quiz {
+  }
+
+  .fasc-quizzes .media-and-quiz .quiz-media-support {
+    text-align: center;
+  }
 
 
 /* SECCIÓN AUTOEVALUACIÓN

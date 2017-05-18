@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style>
+
+  :root {
+    --elements-bg-color: rgba(0,136,204,1);
+  }
+
+  * {  font-family: 'Roboto', sans-serif; }
+
+  .complete-word-quiz {
+    margin: 0 auto;
+    width: 800px;
+  }
+  .quiz-button {
+    margin-top: 1em;
+    text-align: center;
+  }
+    .quiz-board {
+    }
+      .quiz-button button {
+        color: #900;
+        font-weight: bold;
+      }
+      .questions {
+        background: #EEE;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        margin: 0 auto;
+        padding: 0.1em;
+        width: 80%;
+      }
+        .questions-list {
+          padding: 0.3em 0.3em 0em 2em; margin: 0;
+
+        }
+          .questions-list .question-element {
+            padding: 0.5em;
+            margin-bottom: 0.5em;
+          }
+          .questions-list .question-element:hover {
+            background: white;
+          }
+              .statement-question, .input-answer-question {
+                font-size: 1em;
+              }
+              .input-answer-question {
+                text-transform:uppercase;
+              }
+  </style>
+  <script>
+
+    let numberAnswers=1;
+
+    // CHANGE BACKGROUND COLOR INPUT
+    function changeBackground(element) {
+      element.style.backgroundColor = "var(--elements-bg-color)";
+      element.style.color = "white";
+      let audio = new Audio('../assets/audio/click.mp3');
+      audio.play();
+    }
+
+    // GET RESPUESTAS REALIZADAS EN EL QUIZ
+    function getAnswersCompleteWordQuiz() {
+      let resps = new Array(numberAnswers);
+      for(let i=0;i<resps.length;i++) {
+        let elementHTML = "#complete-word-question-"+(i+1);
+        let objSelection = elementHTML+" .input-answer-question";
+        console.log(objSelection);
+        let anwserTyped = document.querySelector(objSelection).value;
+        //answerTyped en mayúscula (toUpperCase()) y eliminando acentos (normalize('NFD').replace(/[\u0300-\u036f]/g, ""))
+        resps[i] = (anwserTyped.toUpperCase()).normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+      }
+      console.log("Respuestas: " + resps);
+    }
+
+  </script>
+
+</head>
+<body>
+
+  <!-- QUIZ
+   ================================================== -->
+  <div class="complete-word-quiz">
+
+    <!-- QUIZ BOARD
+     ================================================== -->
+    <div class="quiz-board">
+
+      <!-- ZONA DE PREGUNTAS
+       ================================================== -->
+      <div class="questions">
+        <ol class="questions-list">
+          <li class="question-element">
+            <!-- PREGUNTA -->
+            <div id="complete-word-question-1" class="complete-word-question">
+              <span class="statement-question">Se utiliza para separar los miembros de una enumeración (grupos de palabras de igual clase o función), salvo el último elemento si este va precedido por las conjunciones: y, e, o, u.</span>
+              <input type="text" class="input-answer-question" onfocus="changeBackground(this)">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ZONA DE BOTONES
+     ================================================== -->
+    <div class="quiz-button">
+      <button id="finish-btn" type="button" name="button" onclick="getAnswersCompleteWordQuiz()" >Continuar</button>
+    </div>
+
+  </div>
+</body>
+</html>
