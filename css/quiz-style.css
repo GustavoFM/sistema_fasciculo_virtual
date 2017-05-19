@@ -1,0 +1,61 @@
+/* STYLE QUIZ DRAG AND DROP - ORDER */
+
+:root {
+  --elements-bg-color: rgba(0,136,204,1);
+}
+
+* {  font-family: 'Roboto', sans-serif; }
+
+.quiz {
+  margin: 0 auto;
+  width: 800px;
+}
+.quiz-button {
+  margin-top: 1em;
+  text-align: center;
+}
+  .quiz-board {
+    display: flex;
+    justify-content: space-around;
+
+  }
+    .quiz-button button {
+      color: #900;
+      font-weight: bold;
+    }
+    .options-column {
+      background: #EEE;
+      border-top-left-radius: 0.5em;
+      border-top-right-radius: 0.5em;
+      width: 40%;
+    }
+      .element-drag-options-column {
+        background: var(--elements-bg-color);
+        color:white;
+        font-size: 0.9em;
+        padding: 0.5em;
+      }
+    .drop-repository {
+      background: #EEE;
+      border-top-left-radius: 0.5em;
+      border-top-right-radius: 0.5em;
+      width: 45%;
+    }
+      .order-number {
+        background: yellow;
+        margin-left: 0.1em;
+        padding: 0 0.3em;
+      }
+
+      .title-options-column, .title-drop-repository {
+        margin-bottom: 0.5em;
+        padding: 1em;
+        font-size: 0.9em;
+        font-weight: bold;
+        text-align: center;
+      }
+      .element-options-column, .element-drop-repository {
+        background: #EEE;
+        height: 1.2rem;
+        padding: 0.5em 0;
+      }
