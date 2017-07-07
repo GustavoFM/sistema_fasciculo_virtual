@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style>
+
+  :root {
+    --elements-bg-color: rgba(0,136,204,1);
+  }
+
+  * {  font-family: 'Roboto', sans-serif; }
+
+  .quiz {
+    margin: 0 auto;
+    width: 800px;
+  }
+  .quiz-button {
+    margin-top: 1em;
+    text-align: center;
+  }
+    .quiz-board {
+      display: flex;
+      justify-content: space-around;
+    }
+      .quiz-button button {
+        color: #900;
+        font-weight: bold;
+      }
+      .options-column {
+        background: lightblue;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        padding: 0.5rem;
+        width: 150px;
+      }
+        .element-drag-options-column {
+          background: var(--elements-bg-color);
+          color:white;
+          font-size: 0.9em;
+          padding: 0.5em;
+        }
+      .drop-repository {
+        background: #EEE;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        padding: 0.5rem;
+        width: 150px;
+      }
+        .order-number {
+          background: yellow;
+          margin-left: 0.1em;
+          padding: 0 0.3em;
+        }
+
+        .title-options-column, .title-drop-repository {
+          margin-bottom: 0.5em;
+          padding: 1em;
+          font-size: 0.9em;
+          font-weight: bold;
+          text-align: center;
+        }
+        .element-options-column, .element-drop-repository {
+          background: #EEE;
+          border:1px solid silver;
+          width: 150px;
+          height: 150px;
+          margin-bottom: 10px;
+          /*padding: 0.5em 0;*/
+        }
+  </style>
+  <script>
+
+    let numberAnswers=2;
+    let elementsOnDropBox=0;
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    /*function transitionDrag(ev) {
+      ev.target.style.border="1px dashed red";
+    }*/
+
+    // EVENTO DE ARRASTRAR
+    function drag(ev) {
+      ev.dataTransfer.setData("id-option", ev.target.id);
+      let audio = new Audio('../assets/audio/click_on.mp3');
+      audio.play();
+    }
+
+    // EVENTO DE SOLTAR
+    // parámetros: evento y elemento que lanza evento (#box_respX)
+    function drop(ev,element) {
+      ev.preventDefault();
+      if(element.childElementCount<1) {
+        let data = ev.dataTransfer.getData("id-option");
+        console.log(ev.target.appendChild(document.getElementById(data)));
+        console.log(data);
+        let audio = new Audio('../assets/audio/drop_on.mp3');
+        audio.play();
+        elementsOnDropBox++;
+      }
+      checkElementsOnDropBox();
+    }
+
+    // REVISIÓN DE ELEMENTOS DEPOSITADOS EN .drop-repository
+    function checkElementsOnDropBox() {
+      if(elementsOnDropBox==numberAnswers) {
+        document.querySelector("#finish_btn").removeAttribute("hidden");
+      }
+    }
+
+    // GET RESPUESTAS REALIZADAS EN EL QUIZ
+    function getAnswersOrderTextQuiz() {
+      let resps = new Array(numberAnswers);
+      for(let i=0;i<resps.length;i++) {
+        let obj_img = "#box_resp"+(i+1);
+        let obj_selection = obj_img+" img";
+        console.log(obj_selection);
+        resps[i] = document.querySelector(obj_selection).id.replace(/\D/g,'');
+        //console.log(resps[i]);
+      }
+      console.log("Respuestas: " + resps);
+    }
+
+    function test() {
+      alert("!Despositado¡");
+    }
+
+    function test2(ev) {
+      ev.target.style.borderColor="green";
+    }
+  </script>
+
+</head>
+<body>
+
+  <!-- QUIZ
+   ================================================== -->
+  <div class="quiz">
+
+    <!-- QUIZ BOARD
+     ================================================== -->
+    <div class="quiz-board">
+
+      <!-- ZONA DE OPCIONES DE RESPUESTA
+       ================================================== -->
+      <div class="options-column">
+        <!--<div class="title-options-column">Elementos</div>-->
+        <div id="box_opc1" class="element-options-column" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+         <!--<span id="drag1" class="element-drag-options-column" draggable="true" ondragstart="drag(event)">Objetivo de la entrevista</span>-->
+          <img src="cat.png" draggable="true" ondragstart="drag(event)" id="drag1" alt="1" width="150" height="150">
+        </div>
+        <div id="box_opc2" class="element-options-column" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+         <!--<span id="drag2" class="element-drag-options-column" draggable="true" ondragstart="drag(event)">Selección del informante</span>-->
+          <img src="cat.png" draggable="true" ondragstart="drag(event)" id="drag2" alt="1" width="150" height="150">
+        </div>
+        <!--<div id="box_opc3" class="element-options-column" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+         <span id="drag3" class="element-drag-options-column" draggable="true" ondragstart="drag(event)">Realización</span>
+        </div>
+        <div id="box_opc4" class="element-options-column" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+         <span id="drag4" class="element-drag-options-column" draggable="true" ondragstart="drag(event)">Redacción del cuestionario</span>
+        </div>
+        <div id="box_opc5" class="element-options-column" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+         <span id="drag5" class="element-drag-options-column" draggable="true" ondragstart="drag(event)">Redacción del reporte</span>
+        </div>
+        <div id="box_opc6" class="element-options-column" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+         <span id="drag6" class="element-drag-options-column" draggable="true" ondragstart="drag(event)">Planeación</span>
+       </div>-->
+      </div>
+
+      <!-- ZONA DE RESPUESTAS
+       ================================================== -->
+      <div class="drop-repository">
+        <!--<div class="title-drop-repository">Orden</div>-->
+        <div id="box_resp1" class="element-drop-repository" ondrop="drop(event,this)" ondragover="allowDrop(event)" ondragend="" ondragenter="test2(event)">
+          <!--<b class="order-number">1</b>-->
+        </div>
+        <div id="box_resp2" class="element-drop-repository" ondrop="drop(event,this)" ondragover="allowDrop(event)" ondragend="" ondragenter="test2(event)">
+          <!--<b class="order-number">2</b>-->
+        </div>
+        <!--<div id="box_resp3" class="element-drop-repository" ondrop="drop(event,this)" ondragover="allowDrop(event)" ondragend="" ondragenter="test2(event)">
+          <b class="order-number">3</b>
+        </div>
+        <div id="box_resp4" class="element-drop-repository" ondrop="drop(event,this)" ondragover="allowDrop(event)" ondragend="" ondragenter="test2(event)">
+          <b class="order-number">4</b>
+        </div>
+        <div id="box_resp5" class="element-drop-repository" ondrop="drop(event,this)" ondragover="allowDrop(event)" ondragend="" ondragenter="test2(event)">
+          <b class="order-number">5</b>
+        </div>
+        <div id="box_resp6" class="element-drop-repository" ondrop="drop(event,this)" ondragover="allowDrop(event)" ondragend="" ondragenter="test2(event)">
+          <b class="order-number">6</b>
+        </div>-->
+      </div>
+
+    </div>
+    <!-- ZONA DE BOTONES
+     ================================================== -->
+    <div class="quiz-button">
+      <button id="finish_btn" type="button" name="button" onclick="getAnswersOrderTextQuiz()" >Continuar</button>
+    </div>
+
+  </div>
+</body>
+</html>
